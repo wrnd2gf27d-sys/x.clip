@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload - X.Clip</title>
+    <link rel="stylesheet" href="style.css">
+    <base target="_blank">
+</head>
+<body>
+    <header class="header">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <div class="logo-icon">▶</div>
+            <span>X.Clip</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search clips...">
+            <button class="search-btn">🔍</button>
+        </div>
+        <div class="nav-buttons">
+            <a href="upload.html" class="upload-btn">+ Upload</a>
+            <button class="nav-btn">🔔</button>
+            <div class="avatar">U</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="upload-container">
+            <h1>Upload Clip</h1>
+
+            <div class="upload-area" id="dropZone" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" onclick="document.getElementById('fileInput').click()">
+                <div class="upload-icon">⬆️</div>
+                <h3>Drag and drop clip files to upload</h3>
+                <p>Your clips will be private until you publish them.</p>
+                <input type="file" id="fileInput" accept="video/*" onchange="handleFileSelect(event)" style="display: none;">
+            </div>
+
+            <div class="upload-preview" id="uploadPreview" style="display:none;">
+                <div class="preview-video" id="previewVideo"></div>
+            </div>
+
+            <form id="uploadForm" onsubmit="handleUpload(event)">
+                <div class="form-group">
+                    <label for="videoTitle">Title (required)</label>
+                    <input type="text" id="videoTitle" placeholder="Add a title that describes your clip" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="videoDesc">Description</label>
+                    <textarea id="videoDesc" placeholder="Tell viewers about your clip"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <div class="category-select">
+                        <select id="videoCategory" style="width:100%; padding:12px; background:#121212; color:white; border:1px solid #303030; border-radius:8px;">
+                            <option value="coding">Coding</option>
+                            <option value="business">Business</option>
+                            <option value="productivity">Productivity</option>
+                            <option value="tech">Tech</option>
+                            <option value="lifestyle">Lifestyle</option>
+                            <option value="education">Education</option>
+                            <option value="finance">Finance</option>
+                            <option value="health">Health</option>
+                            <option value="design">Design</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="music">Music</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Thumbnail</label>
+                    <div class="upload-area" style="padding: 30px;" onclick="document.getElementById('thumbInput').click()">
+                        <div class="upload-icon" style="font-size: 32px;">🖼️</div>
+                        <p>Upload thumbnail or select a frame</p>
+                        <input type="file" id="thumbInput" accept="image/*" style="display:none;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Visibility</label>
+                    <div style="display: flex; gap: 15px; margin-top: 10px;">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="visibility" value="public" checked>
+                            <span>🌎 Public</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="visibility" value="unlisted">
+                            <span>🔗 Unlisted</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="visibility" value="private">
+                            <span>🔒 Private</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="termsCheck" required>
+                        I agree to X.Clip's Terms of Service and Community Guidelines
+                    </label>
+                </div>
+
+                <button type="submit" class="publish-btn" id="publishBtn">Publish</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

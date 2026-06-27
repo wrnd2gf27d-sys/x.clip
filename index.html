@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X.Clip</title>
+    <link rel="stylesheet" href="style.css">
+    <base target="_blank">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <div class="logo-icon">▶</div>
+            <span>X.Clip</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search clips...">
+            <button class="search-btn">🔍</button>
+        </div>
+        <div class="nav-buttons">
+            <a href="upload.html" class="upload-btn">+ Upload</a>
+            <button class="nav-btn">🔔</button>
+            <div class="avatar">U</div>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <div class="sidebar-item active" onclick="window.location.href='index.html'">
+            <span class="sidebar-icon">🏠</span>
+            <span>Home</span>
+        </div>
+        <div class="sidebar-item" onclick="filterCategory('trending')">
+            <span class="sidebar-icon">🔥</span>
+            <span>Trending</span>
+        </div>
+        <div class="sidebar-item" onclick="filterCategory('subscriptions')">
+            <span class="sidebar-icon">📺</span>
+            <span>Subs</span>
+        </div>
+        <div class="sidebar-item" onclick="filterCategory('you')">
+            <span class="sidebar-icon">👤</span>
+            <span>You</span>
+        </div>
+        <div class="sidebar-item" onclick="filterCategory('history')">
+            <span class="sidebar-icon">⏱</span>
+            <span>History</span>
+        </div>
+        <div class="sidebar-item" onclick="filterCategory('liked')">
+            <span class="sidebar-icon">❤</span>
+            <span>Liked</span>
+        </div>
+        <div class="sidebar-item" onclick="filterCategory('watchlater')">
+            <span class="sidebar-icon">⏰</span>
+            <span>Watch Later</span>
+        </div>
+        <div class="sidebar-item" onclick="filterCategory('music')">
+            <span class="sidebar-icon">🎵</span>
+            <span>Music</span>
+        </div>
+        <div class="sidebar-item" onclick="filterCategory('gaming')">
+            <span class="sidebar-icon">🎮</span>
+            <span>Gaming</span>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="categories">
+            <button class="category-chip active" onclick="filterCategory('all')">All</button>
+            <button class="category-chip" onclick="filterCategory('coding')">Coding</button>
+            <button class="category-chip" onclick="filterCategory('business')">Business</button>
+            <button class="category-chip" onclick="filterCategory('productivity')">Productivity</button>
+            <button class="category-chip" onclick="filterCategory('tech')">Tech</button>
+            <button class="category-chip" onclick="filterCategory('lifestyle')">Lifestyle</button>
+            <button class="category-chip" onclick="filterCategory('education')">Education</button>
+            <button class="category-chip" onclick="filterCategory('finance')">Finance</button>
+            <button class="category-chip" onclick="filterCategory('health')">Health</button>
+            <button class="category-chip" onclick="filterCategory('design')">Design</button>
+        </div>
+        <div class="video-grid" id="videoGrid"></div>
+        <div class="no-results" id="noResults" style="display:none; text-align:center; padding:60px; color:#aaa;">
+            <div style="font-size:48px; margin-bottom:20px;">🔍</div>
+            <h2>No clips found</h2>
+            <p>Try a different search term</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

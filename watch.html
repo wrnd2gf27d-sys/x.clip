@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch - X.Clip</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo" onclick="window.location.href='index.html'">
+            <div class="logo-icon">▶</div>
+            <span>X.Clip</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search clips...">
+            <button class="search-btn">🔍</button>
+        </div>
+        <div class="nav-buttons">
+            <a href="upload.html" class="upload-btn">+ Upload</a>
+            <button class="nav-btn">🔔</button>
+            <div class="avatar">U</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="watch-container">
+            <div class="video-player-section">
+                <div class="video-player" id="videoPlayer">
+                    <video id="mainVideo" style="width:100%; height:100%; border-radius:12px;" preload="metadata">
+                        <source src="" type="video/mp4" id="videoSource">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="play-overlay" id="playOverlay" onclick="playVideo()">
+                        <div class="play-button">▶</div>
+                    </div>
+                </div>
+
+                <div class="video-progress-bar" id="progressBarContainer" onclick="seekVideo(event)">
+                    <div class="video-progress" id="progressBar"></div>
+                </div>
+
+                <div class="video-controls" id="videoControls">
+                    <button class="control-btn" onclick="togglePlay()" id="playPauseBtn">▶</button>
+                    <button class="control-btn" onclick="toggleMute()" id="muteBtn">🔊</button>
+                    <div class="time-display">
+                        <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+                    </div>
+                    <button class="control-btn" onclick="toggleFullscreen()">⛶</button>
+                </div>
+
+                <div class="video-header">
+                    <h1 id="videoTitle">Loading...</h1>
+                    <div class="video-actions">
+                        <div class="video-stats">
+                            <span id="videoViews">0 views</span> •
+                            <span id="videoTime">Loading...</span>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="action-btn" id="likeBtn" onclick="toggleLike()">👍 <span id="likeCount">0</span></button>
+                            <button class="action-btn" id="dislikeBtn" onclick="toggleDislike()">👎</button>
+                            <button class="action-btn" onclick="shareVideo()">↗️ Share</button>
+                            <button class="action-btn" onclick="saveVideo()">💾 Save</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="channel-info">
+                    <div class="channel-avatar" id="channelAvatar">?</div>
+                    <div class="channel-name">
+                        <h3 id="channelName">Loading...</h3>
+                        <span class="subscribers" id="subCount">1.2M subscribers</span>
+                    </div>
+                    <button class="subscribe-btn" id="subscribeBtn" onclick="toggleSubscribe()">Subscribe</button>
+                </div>
+
+                <div class="description-box">
+                    <p id="videoDescription">Loading description...</p>
+                </div>
+
+                <div class="comments-section">
+                    <h3>Comments (<span id="commentCount">0</span>)</h3>
+                    <div class="comment-input">
+                        <div class="channel-avatar">U</div>
+                        <input type="text" id="commentInput" placeholder="Add a comment..." onkeypress="handleComment(event)">
+                    </div>
+                    <div id="commentsList"></div>
+                </div>
+            </div>
+
+            <div class="related-videos" id="relatedVideos"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
